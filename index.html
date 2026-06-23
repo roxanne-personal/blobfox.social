@@ -25,7 +25,7 @@
                 <div class="sites">
                     <p><strong>sites:</strong></p>
                     <ul>
-                        <li><a href="https://blobfox.space" id="play-sound">> blobfox.space</a></li>
+                        <li><a href="https://blobfox.space" id="play-sound" target="_blank">> blobfox.space</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,18 +37,18 @@
         </footer>
     </div>
 
-    <audio id="goober-audio" src="sounds/linkzzclick.mp3"></audio>
+    <audio id="goober-audio" src="sounds/it's-just-one-of-those-days!-made-with-Voicemod.mp3"></audio>
 
     <script>
-        document.getElementById('play-sound').addEventListener('click', function(event) {
-            event.preventDefault(); // Stops the '#' from jumping the page to the top
+        document.getElementById('play-sound').addEventListener('click', function() {
             const audio = document.getElementById('goober-audio');
             
-            // If it's already playing, reset it to the beginning
+            // Instantly rewind to start if clicked multiple times so it's spammable
             audio.currentTime = 0; 
             
+            // Play the track on the current page while the browser pops open the new tab
             audio.play().catch(function(error) {
-                console.log("Playback failed. Ensure the filename and extension are exactly correct.", error);
+                console.log("Audio playback failed or blocked by browser policy:", error);
             });
         });
     </script>
