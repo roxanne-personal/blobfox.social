@@ -25,19 +25,32 @@
                 <div class="sites">
                     <p><strong>sites:</strong></p>
                     <ul>
-                        <li><a href="#">> blobfox.space</a></li>
+                        <li><a href="#" id="play-sound">> blobfox.space</a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- add more members here -->
-
-        </main>
+            </main>
 
         <footer>
             <p>best viewed in netscape navigator 4.0 | last updated: 2026</p>
         </footer>
     </div>
 
+    <audio id="goober-audio" src="sounds/linkzzclick.mp3"></audio>
+
+    <script>
+        document.getElementById('play-sound').addEventListener('click', function(event) {
+            event.preventDefault(); // Stops the '#' from jumping the page to the top
+            const audio = document.getElementById('goober-audio');
+            
+            // If it's already playing, reset it to the beginning
+            audio.currentTime = 0; 
+            
+            audio.play().catch(function(error) {
+                console.log("Playback failed. Ensure the filename and extension are exactly correct.", error);
+            });
+        });
+    </script>
 </body>
 </html>
