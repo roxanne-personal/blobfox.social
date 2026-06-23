@@ -5,298 +5,140 @@
 }
 
 body {
-    font-family: 'Courier New', monospace;
-    background-color: #1a1a1a;
-    background-image: 
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/></filter></defs><rect width="100" height="100" fill="%23000000"/><rect width="100" height="100" fill="%23111111" opacity="0.3" filter="url(%23noise)"/></svg>');
-    min-height: 100vh;
-    padding: 20px;
-    color: #00ff00;
-    overflow-x: hidden;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #000033;
+    color: #000;
+    line-height: 1.6;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 50px;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #00ff00;
-    box-shadow: 
-        0 0 10px rgba(0, 255, 0, 0.3),
-        inset 0 0 10px rgba(0, 0, 0, 0.5);
-    position: relative;
-    transform: skewY(-1deg);
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 255, 0, 0.03),
-        rgba(0, 255, 0, 0.03) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    pointer-events: none;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #00ff00;
-    text-shadow: 
-        2px 2px 0px #ff00ff,
-        4px 4px 0px #00ffff,
-        -1px -1px 0px rgba(255, 0, 255, 0.5);
-    font-weight: bold;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 1;
-    text-transform: uppercase;
-    animation: glitch 0.3s infinite;
-}
-
-@keyframes glitch {
-    0% {
-        text-shadow: 
-            2px 2px 0px #ff00ff,
-            4px 4px 0px #00ffff,
-            -1px -1px 0px rgba(255, 0, 255, 0.5);
-    }
-    33% {
-        text-shadow: 
-            -2px 2px 0px #ff00ff,
-            4px -4px 0px #00ffff,
-            -1px -1px 0px rgba(255, 0, 255, 0.5);
-    }
-    66% {
-        text-shadow: 
-            2px -2px 0px #ff00ff,
-            -4px 4px 0px #00ffff,
-            -1px -1px 0px rgba(255, 0, 255, 0.5);
-    }
-}
-
-header .subtitle {
-    font-size: 1.1em;
-    color: #00ffff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 1;
-    text-transform: uppercase;
-}
-
-.cast-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 35px;
-    margin-bottom: 50px;
-}
-
-.profile-card {
-    background: rgba(20, 20, 40, 0.9);
-    border: 2px dashed #00ff00;
-    box-shadow: 
-        0 0 15px rgba(0, 255, 0, 0.2),
-        0 0 30px rgba(255, 0, 255, 0.1),
-        inset 0 0 10px rgba(0, 255, 0, 0.05);
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-    transform: perspective(1000px) rotateX(0.5deg) rotateY(-0.5deg);
-    transition: all 0.3s ease;
-}
-
-.profile-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 255, 0, 0.03),
-        rgba(0, 255, 0, 0.03) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    pointer-events: none;
-    z-index: 10;
-}
-
-.profile-card:hover {
-    transform: perspective(1000px) rotateX(-1deg) rotateY(1deg) scale(1.02);
-    box-shadow: 
-        0 0 25px rgba(0, 255, 0, 0.4),
-        0 0 50px rgba(255, 0, 255, 0.2),
-        inset 0 0 20px rgba(0, 255, 0, 0.1);
-    border-color: #ff00ff;
-}
-
-.profile-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    background: #000000;
-    border-bottom: 2px dashed #00ffff;
-    position: relative;
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(0.8) contrast(1.1);
-    opacity: 0.95;
-}
-
-.profile-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(255, 0, 255, 0.03),
-        rgba(255, 0, 255, 0.03) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    pointer-events: none;
-}
-
-.profile-info {
-    padding: 20px;
-    background: rgba(10, 10, 20, 0.9);
-}
-
-.profile-info h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #00ffff;
-    font-weight: bold;
-    border-bottom: 1px dashed #ff00ff;
-    padding-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.bio {
-    font-size: 0.9em;
-    color: #00ff00;
-    margin-bottom: 15px;
-    line-height: 1.5;
-    background: rgba(0, 255, 0, 0.05);
-    padding: 10px;
-    border-left: 2px solid #00ffff;
-    border-right: 2px solid #ff00ff;
-    font-family: 'Courier New', monospace;
-}
-
-.sites-list {
-    margin-top: 15px;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px dashed #00ff00;
-}
-
-.sites-list h3 {
-    font-size: 0.85em;
-    color: #ff00ff;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-decoration: underline;
-}
-
-.sites-list ul {
-    list-style: none;
-}
-
-.sites-list li {
-    margin-bottom: 6px;
-    padding-left: 15px;
-    position: relative;
-}
-
-.sites-list li::before {
-    content: '> ';
-    position: absolute;
-    left: 0;
-    color: #00ff00;
-    font-weight: bold;
-}
-
-.sites-list a {
-    color: #00ffff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.2s ease;
-    font-family: 'Courier New', monospace;
-}
-
-.sites-list a:hover {
-    color: #ff00ff;
-    text-decoration: underline;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
-
-/* CRT monitor effect overlay */
-body::after {
-    content: '';
+.starfield {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.15) 1px,
-        transparent 1px,
-        transparent 2px
-    );
-    pointer-events: none;
-    z-index: 999;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 10px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    z-index: -1;
 }
 
-/* Responsive Design */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.member {
+    padding: 20px;
+    border: 2px solid #000;
+    background: #f0f0f0;
+}
+
+.member-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #000;
+    object-fit: cover;
+}
+
+.member-header h2 {
+    font-size: 1.6em;
+    font-weight: normal;
+}
+
+.bio {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: white;
+    border: 1px dashed #999;
+    font-size: 0.95em;
+}
+
+.sites {
+    padding: 10px;
+    background: #ffffcc;
+    border-left: 3px solid #999;
+}
+
+.sites strong {
+    text-decoration: underline;
+}
+
+.sites ul {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+.sites li {
+    margin: 5px 0;
+}
+
+.sites a {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+.sites a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    padding-top: 20px;
+    border-top: 2px solid #000;
+}
+
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    .cast-grid {
+    .members-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
     }
-
-    .profile-image {
-        height: 220px;
-    }
-
-    .profile-info h2 {
-        font-size: 1.3em;
-    }
-
-    .bio {
-        font-size: 0.85em;
+    
+    header h1 {
+        font-size: 2em;
     }
 }
